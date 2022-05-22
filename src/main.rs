@@ -15,7 +15,7 @@ fn main() {
     print!("{esc}c", esc = 27 as char);
     let time = Utc::now();
 
-    println!("Enter the account ID you wish yo calculate for: ");
+    println!("-Enter the account ID you wish to calculate for-");
     let mut id = String::new();
     std::io::stdin().read_line(&mut id).unwrap();
     let id = id.trim();
@@ -24,28 +24,28 @@ fn main() {
     let mut w1:f32=0.0;
     let mut input = String::new();
 
-    println!("Please enter the first week of average payout:");
+    println!("-Please enter the first week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w1 = input.trim().parse().expect("Not a valid number");
 
     let mut w2:f32=0.0;
     let mut input = String::new();
 
-    println!("Please enter the seccond week of average payout:");
+    println!("-Please enter the seccond week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w2 = input.trim().parse().expect("Not a valid number");
 
     let mut w3:f32=0.0;
     let mut input = String::new();
 
-    println!("Please enter the third week of average payout:");
+    println!("-Please enter the third week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w3 = input.trim().parse().expect("Not a valid number");
 
     let mut w4:f32=0.0;
     let mut input = String::new();
 
-    println!("Please enter the fourth week of average payout:");
+    println!("-Please enter the fourth week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w4 = input.trim().parse().expect("Not a valid number");
 
@@ -53,21 +53,21 @@ fn main() {
     let mut watts:f32=0.0;
     let mut input = String::new();
     
-    println!("Please input your current Kw/h usage(watts): ");
+    println!("-Please input your current Kw/h usage(watts)-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     watts = input.trim().parse().expect("Not a valid number");
 
     let mut erates:f32=0.0;
     let mut input = String::new();
 
-    println!("Please enter your Kw/h electric costs:");
+    println!("-Please enter your Kw/h electric costs-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     erates = input.trim().parse().expect("Not a valid number");
     
     let mut activity:f32=0.0;
     let mut input = String::new();
 
-    println!("Please enter your expected mining activity per day (24 hours in one day)");
+    println!("-Please enter your expected mining activity per day (24 hours in one day)-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     activity = input.trim().parse().expect("Not a valid number");
 
@@ -98,7 +98,7 @@ fn main() {
 
     print!("{esc}c", esc = 27 as char);
     let mut mod_yn = String::new();
-    println!("Are there any modifiers (Y/N)");
+    println!("-Are there any modifiers (Y/N)-");
     std::io::stdin().read_line(&mut mod_yn).unwrap();
     let mod_yn = mod_yn.trim();
 
@@ -109,16 +109,16 @@ fn main() {
 
         let mut input = String::new();
         //I'm attempting to get the input from the user to define a modifer reason and value
-        println!("Please enter the modifer: ");
+        println!("-Please enter the modifer-");
         std::io::stdin()
             .read_line(&mut input)
             .expect("Not a valid string");
         modifer = input.trim().parse().expect("Not a valid number");
 
-        println!("Whats the modifer reason: ");
+        println!("-Whats the modifer reason-");
         std::io::stdin().read_line(&mut mod_reason).unwrap();
         mod_reason = mod_reason.trim().to_string();
-        println!("Type (A/S) for addition and subtraction respectfully: ");
+        println!("-Type (A/S) for addition and subtraction respectfully-");
         let mut modtype = String::new();
         let _b1 = std::io::stdin().read_line(&mut modtype).unwrap();
         let modtype = modtype.trim();
@@ -142,7 +142,7 @@ fn main() {
         break
     }
     else{
-        println!("Invalid input, please respond with 'Y' or 'N'");
+        println!("-Invalid input, please respond with 'Y' or 'N'-");
         thread::sleep(Duration::from_secs(5));
     }
     }
@@ -150,6 +150,7 @@ fn main() {
     println!("{}", time);
     println!("-{} has made-", id);
     green!("${} \n", payout,);
+    print!("\n");
     if mod_value == 1{
     println!("-Modified Payout-");
     green!("${} \n", mpayout);
@@ -160,6 +161,7 @@ fn main() {
     println!("-Modifer Type-");
     println!("{}",add_sub);
     }
+    print!("\n");
     println!("-Estimated electric bill-");
     red!("${} \n", cost);
     println!("-Estimated profit margin-");
@@ -175,6 +177,7 @@ fn main() {
     file.write_all(id.as_bytes()).expect("write failed");
     file.write_all(" Has Made-\n$".as_bytes()).expect("write failed");
     file.write_all(p.as_bytes()).expect("write failed");
+    file.write_all("\n".as_bytes()).expect("write failed");
     if mod_value == 1{
         let mp = mpayout.to_string();
         let m = modifer.to_string();
@@ -186,6 +189,7 @@ fn main() {
         file.write_all(m.as_bytes()).expect("write failed");
         file.write_all("\n-Modifer Type-\n".as_bytes()).expect("write failed");
         file.write_all(add_sub.as_bytes()).expect("write failed");
+        file.write_all("\n".as_bytes()).expect("write failed");
     }
     let c = cost.to_string();
     let ep = profit.to_string();
@@ -193,7 +197,7 @@ fn main() {
     file.write_all(c.as_bytes()).expect("write failed");
     file.write_all("\n-Estimated profit margin-\n$".as_bytes()).expect("write failed");
     file.write_all(ep.as_bytes()).expect("write failed");
-
+    print!("\n");
     println!("Recipt file created." );
 
     let mut privkey = String::new();
