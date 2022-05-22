@@ -10,9 +10,13 @@ fn credits(){
     thread::sleep(Duration::from_secs(5));
 }
 
+fn cls(){
+    print!("{esc}c", esc = 27 as char);
+}
+
 fn main() {
     let mut modifer = 0;
-    print!("{esc}c", esc = 27 as char);
+    cls();
     let time = Utc::now();
 
     println!("-Enter the account ID you wish to calculate for-");
@@ -57,12 +61,12 @@ fn main() {
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     watts = input.trim().parse().expect("Not a valid number");
     print!("\n");
-    let mut erates:f32=0.0;
+    let mut e_rates:f32=0.0;
     let mut input = String::new();
 
     println!("-Please enter your Kw/h electric costs-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
-    erates = input.trim().parse().expect("Not a valid number");
+    e_rates = input.trim().parse().expect("Not a valid number");
     print!("\n");
     let mut activity:f32=0.0;
     let mut input = String::new();
@@ -71,14 +75,14 @@ fn main() {
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     activity = input.trim().parse().expect("Not a valid number");
 
-    let monthactivity = activity * 30.0;
-    let monthwats = watts * monthactivity;
-    let kw = monthwats/1000.0;
-    let cost = erates*kw;
+    let month_activity = activity * 30.0;
+    let month_wats = watts * month_activity;
+    let kw = month_wats/1000.0;
+    let cost = e_rates*kw;
     let modifer = 0;
 
-    let dmonthly = w1+w2+w3+w4;
-    let mean = dmonthly/4.0;
+    let define_monthly = w1+w2+w3+w4;
+    let mean = define_monthly/4.0;
     let weekly = mean*7.0;
     let month = weekly*4.0;
     let tax = month*0.2;
@@ -91,12 +95,8 @@ fn main() {
     let mut mod_value = 0;
     let mut add_sub = "";
     loop{
-    let Y = "Y";
-    let y = "y";
-    let N = "N";
-    let n = "n";
 
-    print!("{esc}c", esc = 27 as char);
+    cls();
     let mut mod_yn = String::new();
     println!("-Are there any modifiers (Y/N)-");
     std::io::stdin().read_line(&mut mod_yn).unwrap();
@@ -105,10 +105,9 @@ fn main() {
     
     if mod_yn == "y" || mod_yn == "Y" {
         mod_value = 1;
-        print!("{esc}c", esc = 27 as char);
+        cls();
 
         let mut input = String::new();
-        //I'm attempting to get the input from the user to define a modifer reason and value
         println!("-Please enter the modifer-");
         std::io::stdin()
             .read_line(&mut input)
@@ -141,7 +140,7 @@ fn main() {
         }
 
     } 
-    else if mod_yn == n || mod_yn == N{
+    else if mod_yn == "n" || mod_yn == "N"{
         break
     }
     else{
@@ -149,7 +148,7 @@ fn main() {
         thread::sleep(Duration::from_secs(5));
     }
     }
-    print!("{esc}c", esc = 27 as char);
+    cls();
     println!("{}", time);
     println!("-{} has made-", id);
     green!("${} \n", payout,);
@@ -169,8 +168,6 @@ fn main() {
     red!("${} \n", cost);
     println!("-Estimated profit margin-");
     green!("${} \n", profit);
-
-    //Plan to add file writting features here
 
     let t = time.to_string();
     let p = payout.to_string();
@@ -208,7 +205,7 @@ fn main() {
     let privkey = privkey.trim();
     loop{
         if privkey == "3121"{
-            println!("Tax Collected: ");
+            println!("-Tax Collected-");
             green!("${}",tax);
             thread::sleep(Duration::from_secs(5));
             break
