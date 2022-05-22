@@ -5,9 +5,13 @@ Hello and welcome to the networks pool calculator. This is a small CLI based too
 
 ### Usage
 Just input each line as they get displayed ensure that your payouts have been averaged across all days.
-You may also replicate a dayily average across all 4 weeks to get a heavy projection of what possible earnings could look like.
+
+You may also replicate a dayily average across all 4 weeks to get a possible projection of what possible earnings could look like.
 
 Feel free to create any issues; fork the project or otherwise interact with it.
+
+### Disclaimer 
+All earnings are calculated at 24/7 usage; this is why its important to average out your payments instead of doing it based off an hourly or dayily rate.
 
 ![image](https://user-images.githubusercontent.com/66909997/169681467-cd2be635-7357-4510-9593-acd402bfe128.png)
 
