@@ -14,13 +14,13 @@ Feel free to create any issues; fork the project or otherwise interact with it.
 All earnings are calculated at 24/7 usage; this is why its important to average out your payments instead of doing it based off an hourly or dayily rate.
 Logs/recipt will generate in whichever folder 'NetworkPoolCalculatorReforged.exe' is inside of.
 
-![image](https://user-images.githubusercontent.com/66909997/169681467-cd2be635-7357-4510-9593-acd402bfe128.png)
+![image](https://user-images.githubusercontent.com/66909997/169682482-4d3e0c24-db81-40be-90eb-0f1c287b5e71.png)
 
 ![image](https://user-images.githubusercontent.com/66909997/169681471-e8d26212-64f5-4a62-b739-75f466661cc0.png)
 
-![image](https://user-images.githubusercontent.com/66909997/169681494-46058976-37a9-455d-b6bc-2ef462a247e2.png)
+![image](https://user-images.githubusercontent.com/66909997/169682498-be7d91eb-d36c-4fdb-bea3-4d26bd99d862.png)
 
-![image](https://user-images.githubusercontent.com/66909997/169681505-c763a3b5-aa0b-44c2-b1b2-49a7a617f7be.png)
+![image](https://user-images.githubusercontent.com/66909997/169682577-7e825726-6b6f-4a15-ac41-7b9f64e73a2a.png)
 
-![image](https://user-images.githubusercontent.com/66909997/169681524-77ba61e7-6f80-426c-a11b-8e138efaa302.png)
+![image](https://user-images.githubusercontent.com/66909997/169682597-cb35683f-69ab-47ed-93f6-4a8b1ae512f5.png)
 
