@@ -14,7 +14,7 @@ Feel free to create any issues; fork the project or otherwise interact with it.
 All earnings are calculated at 24/7 usage; this is why its important to average out your payments instead of doing it based off an hourly or dayily rate.
 But makes it 100% accurate for calculating payments (Which is the projects orginal goal)
 
-Logs/recipt will generate in whichever folder 'NetworkPoolCalculatorReforged.exe' is inside of.
+Logs/recipt will generate in the "Recipts" folder where ever your 'NetworkPoolCalculatorReforged.exe' is inside of.
 If you used the installer please check your programs folder
 
 ![image](https://user-images.githubusercontent.com/66909997/169682482-4d3e0c24-db81-40be-90eb-0f1c287b5e71.png)

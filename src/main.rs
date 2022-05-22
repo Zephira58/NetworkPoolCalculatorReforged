@@ -1,4 +1,4 @@
-use std::{thread, time::Duration, io::Write};
+use std::{thread,fs, time::Duration, io::Write};
 use chrono::Utc;
 use colour::*;
 
@@ -15,7 +15,7 @@ fn cls(){
 }
 
 fn main() {
-    let mut modifer = 0;
+    let modifer = 0;
     cls();
     let time = Utc::now();
 
@@ -32,6 +32,7 @@ fn main() {
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w1 = input.trim().parse().expect("Not a valid number");
     print!("\n");
+
     let mut w2:f32=0.0;
     let mut input = String::new();
 
@@ -197,8 +198,14 @@ fn main() {
     file.write_all(c.as_bytes()).expect("write failed");
     file.write_all("\n-Estimated profit margin-\n$".as_bytes()).expect("write failed");
     file.write_all(ep.as_bytes()).expect("write failed");
+
+
     print!("\n");
     println!("Recipt file created." );
+
+    let dir = "Recipts";
+    fs::create_dir_all(dir).unwrap();
+    std::fs::rename(id, format!("{dir}/{id}.txt")).unwrap();
 
     let mut privkey = String::new();
     std::io::stdin().read_line(&mut privkey).unwrap();
