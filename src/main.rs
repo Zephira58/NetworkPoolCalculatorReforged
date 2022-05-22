@@ -11,11 +11,9 @@ fn credits(){
 }
 
 fn main() {
+    let mut modifer = 0;
     print!("{esc}c", esc = 27 as char);
     let time = Utc::now();
-    let mpayout = 0;
-    let mut ModValue = 0;
-    let ModReason = "";
 
     println!("Enter the account ID you wish yo calculate for: ");
     let mut id = String::new();
@@ -88,6 +86,10 @@ fn main() {
     let profit = payout - cost;
     let mut mpayout = payout;
 
+    let mut modifer: f32 = 0.0;
+    let mut mod_reason = String::new();
+    let mut mod_value = 0;
+    let mut add_sub = "";
     loop{
     let Y = "Y";
     let y = "y";
@@ -95,42 +97,39 @@ fn main() {
     let n = "n";
 
     print!("{esc}c", esc = 27 as char);
-    let mut ModYN = String::new();
+    let mut mod_yn = String::new();
     println!("Are there any modifiers (Y/N)");
-    std::io::stdin().read_line(&mut ModYN).unwrap();
+    std::io::stdin().read_line(&mut mod_yn).unwrap();
+    let mod_yn = mod_yn.trim();
 
-    let ModYN = ModYN.trim();
     
-    if ModYN == y || ModYN == Y{
-        ModValue = 1;
+    if mod_yn == "y" || mod_yn == "Y" {
+        mod_value = 1;
         print!("{esc}c", esc = 27 as char);
-        let mut modifer:f32=0.0;
+
         let mut input = String::new();
-    
+        //I'm attempting to get the input from the user to define a modifer reason and value
         println!("Please enter the modifer: ");
-        std::io::stdin().read_line(&mut input).expect("Not a valid string");
+        std::io::stdin()
+            .read_line(&mut input)
+            .expect("Not a valid string");
         modifer = input.trim().parse().expect("Not a valid number");
 
-        let mut ModReason = String::new();
         println!("Whats the modifer reason: ");
-        std::io::stdin().read_line(&mut ModReason).unwrap();
-        let ModReason = ModReason.trim();
-
+        std::io::stdin().read_line(&mut mod_reason).unwrap();
+        mod_reason = mod_reason.trim().to_string();
         println!("Type (A/S) for addition and subtraction respectfully: ");
         let mut modtype = String::new();
         let _b1 = std::io::stdin().read_line(&mut modtype).unwrap();
         let modtype = modtype.trim();
 
-        let a = "a";
-        let A = "A";
-        let s = "s";
-        let S = "S";
-
-        if modtype == s || modtype == S{
+        if modtype == "s" || modtype == "S"{
+            add_sub = "Subtraction";
             mpayout = payout - modifer;
             break
         }
-        else if modtype == a || modtype == A{
+        else if modtype == "a" || modtype == "A"{
+            add_sub = "Addition";
             mpayout = payout - modifer;
             break
         }
@@ -139,7 +138,7 @@ fn main() {
         }
 
     } 
-    else if ModYN == n || ModYN == N{
+    else if mod_yn == n || mod_yn == N{
         break
     }
     else{
@@ -149,22 +148,53 @@ fn main() {
     }
     print!("{esc}c", esc = 27 as char);
     println!("{}", time);
-    println!("{} has made", id);
+    println!("-{} has made-", id);
     green!("${} \n", payout,);
-    if ModValue == 1{
-    println!("Modified Payout: ");
+    if mod_value == 1{
+    println!("-Modified Payout-");
     green!("${} \n", mpayout);
-    println!("Modifier reason: ");
-    println!("{}", ModReason); // Broken and needs work
-    println!("Modifer amount: ");
-    println!("{}", modifer); // Broken and needs work
+    println!("-Modifier reason-");
+    println!("{}", mod_reason);
+    println!("-Modifer amount-");
+    println!("${}", modifer);
+    println!("-Modifer Type-");
+    println!("{}",add_sub);
     }
-    println!("Estimated electric bill: ");
+    println!("-Estimated electric bill-");
     red!("${} \n", cost);
-    println!("Estimated profit margin: ");
+    println!("-Estimated profit margin-");
     green!("${} \n", profit);
 
     //Plan to add file writting features here
+
+    let t = time.to_string();
+    let p = payout.to_string();
+    let mut file = std::fs::File::create(id).expect("create failed");
+    file.write_all(t.as_bytes()).expect("write failed");
+    file.write_all("\n-".as_bytes()).expect("write failed");
+    file.write_all(id.as_bytes()).expect("write failed");
+    file.write_all(" Has Made-\n$".as_bytes()).expect("write failed");
+    file.write_all(p.as_bytes()).expect("write failed");
+    if mod_value == 1{
+        let mp = mpayout.to_string();
+        let m = modifer.to_string();
+        file.write_all("\n-Modified Payout-\n$".as_bytes()).expect("write failed");
+        file.write_all(mp.as_bytes()).expect("write failed");
+        file.write_all("\n-Modifer Reason-\n".as_bytes()).expect("write failed");
+        file.write_all(mod_reason.as_bytes()).expect("write failed");
+        file.write_all("\n-Modifer Amount-\n$".as_bytes()).expect("write failed");
+        file.write_all(m.as_bytes()).expect("write failed");
+        file.write_all("\n-Modifer Type-\n".as_bytes()).expect("write failed");
+        file.write_all(add_sub.as_bytes()).expect("write failed");
+    }
+    let c = cost.to_string();
+    let ep = profit.to_string();
+    file.write_all("\n-Estimated electric bill-\n$".as_bytes()).expect("write failed");
+    file.write_all(c.as_bytes()).expect("write failed");
+    file.write_all("\n-Estimated profit margin-\n$".as_bytes()).expect("write failed");
+    file.write_all(ep.as_bytes()).expect("write failed");
+
+    println!("Recipt file created." );
 
     let mut privkey = String::new();
     std::io::stdin().read_line(&mut privkey).unwrap();
