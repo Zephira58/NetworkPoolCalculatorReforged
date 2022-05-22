@@ -19,7 +19,7 @@ fn main() {
     let mut id = String::new();
     std::io::stdin().read_line(&mut id).unwrap();
     let id = id.trim();
-
+    print!("\n");
 
     let mut w1:f32=0.0;
     let mut input = String::new();
@@ -27,28 +27,28 @@ fn main() {
     println!("-Please enter the first week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w1 = input.trim().parse().expect("Not a valid number");
-
+    print!("\n");
     let mut w2:f32=0.0;
     let mut input = String::new();
 
     println!("-Please enter the seccond week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w2 = input.trim().parse().expect("Not a valid number");
-
+    print!("\n");
     let mut w3:f32=0.0;
     let mut input = String::new();
 
     println!("-Please enter the third week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w3 = input.trim().parse().expect("Not a valid number");
-
+    print!("\n");
     let mut w4:f32=0.0;
     let mut input = String::new();
 
     println!("-Please enter the fourth week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w4 = input.trim().parse().expect("Not a valid number");
-
+    print!("\n");
 
     let mut watts:f32=0.0;
     let mut input = String::new();
@@ -56,18 +56,18 @@ fn main() {
     println!("-Please input your current Kw/h usage(watts)-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     watts = input.trim().parse().expect("Not a valid number");
-
+    print!("\n");
     let mut erates:f32=0.0;
     let mut input = String::new();
 
     println!("-Please enter your Kw/h electric costs-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     erates = input.trim().parse().expect("Not a valid number");
-    
+    print!("\n");
     let mut activity:f32=0.0;
     let mut input = String::new();
 
-    println!("-Please enter your expected mining activity per day (24 hours in one day)-");
+    println!("-Please enter your expected mining activity per day (In hourly rate IE: 14, 5, 24)-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     activity = input.trim().parse().expect("Not a valid number");
 
@@ -114,10 +114,13 @@ fn main() {
             .read_line(&mut input)
             .expect("Not a valid string");
         modifer = input.trim().parse().expect("Not a valid number");
-
+        print!("\n");
+        
         println!("-Whats the modifer reason-");
         std::io::stdin().read_line(&mut mod_reason).unwrap();
         mod_reason = mod_reason.trim().to_string();
+        print!("\n");
+
         println!("-Type (A/S) for addition and subtraction respectfully-");
         let mut modtype = String::new();
         let _b1 = std::io::stdin().read_line(&mut modtype).unwrap();
@@ -130,7 +133,7 @@ fn main() {
         }
         else if modtype == "a" || modtype == "A"{
             add_sub = "Addition";
-            mpayout = payout - modifer;
+            mpayout = payout + modifer;
             break
         }
         else{
@@ -142,7 +145,7 @@ fn main() {
         break
     }
     else{
-        println!("-Invalid input, please respond with 'Y' or 'N'-");
+        red!("Invalid input, please respond with 'Y' or 'N'");
         thread::sleep(Duration::from_secs(5));
     }
     }
@@ -160,8 +163,8 @@ fn main() {
     println!("${}", modifer);
     println!("-Modifer Type-");
     println!("{}",add_sub);
-    }
     print!("\n");
+    }
     println!("-Estimated electric bill-");
     red!("${} \n", cost);
     println!("-Estimated profit margin-");
