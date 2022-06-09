@@ -1,3 +1,7 @@
+#![allow(unused_assignments)]
+#![allow(unused_variables)]
+#![allow(non_snake_case)]
+
 use std::{thread,fs, time::Duration, io::Write};
 use chrono::Utc;
 use colour::*;
