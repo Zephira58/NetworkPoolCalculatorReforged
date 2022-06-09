@@ -15,7 +15,6 @@ fn cls(){
 }
 
 fn main() {
-    let modifer = 0;
     cls();
     let time = Utc::now();
 
@@ -27,7 +26,6 @@ fn main() {
 
     let mut w1:f32=0.0;
     let mut input = String::new();
-
     println!("-Please enter the first week of average payout-");
     std::io::stdin().read_line(&mut input).expect("Not a valid string");
     w1 = input.trim().parse().expect("Not a valid number");
