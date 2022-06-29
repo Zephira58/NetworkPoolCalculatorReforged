@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Macros for creating coloured console output."><meta name="keywords" content="rust, rustlang, rust-lang, colour"><title>colour - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><script defer src="../main.js"></script>
+    <noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../colour/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../colour/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"><a href="#">Crate colour</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.6.0</li><li><a id="all-types" href="all.html">All Items</a></li></div></ul><section><div class="block"><ul><li><a href="#macros">Macros</a></li></ul></div></section><div id="sidebar-vars" data-name="colour" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../colour/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">colour</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/colour/lib.rs.html#1-924">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Macros for creating coloured console output.</p>
+<p>The macros are based on the following colours:</p>
+<ul>
+<li>grey</li>
+<li>red</li>
+<li>green</li>
+<li>yellow</li>
+<li>blue</li>
+<li>magenta</li>
+<li>cyan</li>
+<li>black</li>
+<li>white</li>
+</ul>
+<p>There are dark versions of each colour, and for all colours there is version with suffix <code>_ln</code>
+which appends a newline (similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> and
+<a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a>).</p>
+<p>There are also <code>prnt!</code> and <code>prnt_ln!</code> available which print using the current default foreground
+colour.</p>
+<p>Every variant also has a version with prefix <code>e_</code>.  Variants with this prefix output to stderr,
+while those without output to stdout.</p>
+</div></details><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.black.html" title="colour::black macro">black</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using black as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.black_ln.html" title="colour::black_ln macro">black_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using black as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.blue.html" title="colour::blue macro">blue</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using blue as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.blue_ln.html" title="colour::blue_ln macro">blue_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using blue as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.cyan.html" title="colour::cyan macro">cyan</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using cyan as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.cyan_ln.html" title="colour::cyan_ln macro">cyan_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using cyan as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_blue.html" title="colour::dark_blue macro">dark_blue</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark blue as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_blue_ln.html" title="colour::dark_blue_ln macro">dark_blue_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark blue as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_cyan.html" title="colour::dark_cyan macro">dark_cyan</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark cyan as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_cyan_ln.html" title="colour::dark_cyan_ln macro">dark_cyan_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark cyan as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_green.html" title="colour::dark_green macro">dark_green</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark green as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_green_ln.html" title="colour::dark_green_ln macro">dark_green_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark green as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_grey.html" title="colour::dark_grey macro">dark_grey</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark grey as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_grey_ln.html" title="colour::dark_grey_ln macro">dark_grey_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark grey as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_magenta.html" title="colour::dark_magenta macro">dark_magenta</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark magenta as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_magenta_ln.html" title="colour::dark_magenta_ln macro">dark_magenta_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark magenta
+as the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_red.html" title="colour::dark_red macro">dark_red</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark red as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_red_ln.html" title="colour::dark_red_ln macro">dark_red_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark red as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_yellow.html" title="colour::dark_yellow macro">dark_yellow</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using dark yellow as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.dark_yellow_ln.html" title="colour::dark_yellow_ln macro">dark_yellow_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using dark yellow as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_black.html" title="colour::e_black macro">e_black</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using black as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_black_ln.html" title="colour::e_black_ln macro">e_black_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using black as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_blue.html" title="colour::e_blue macro">e_blue</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using blue as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_blue_ln.html" title="colour::e_blue_ln macro">e_blue_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using blue as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_cyan.html" title="colour::e_cyan macro">e_cyan</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using cyan as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_cyan_ln.html" title="colour::e_cyan_ln macro">e_cyan_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using cyan as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_blue.html" title="colour::e_dark_blue macro">e_dark_blue</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark blue as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_blue_ln.html" title="colour::e_dark_blue_ln macro">e_dark_blue_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark blue as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_cyan.html" title="colour::e_dark_cyan macro">e_dark_cyan</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark cyan as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_cyan_ln.html" title="colour::e_dark_cyan_ln macro">e_dark_cyan_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark cyan as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_green.html" title="colour::e_dark_green macro">e_dark_green</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark green as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_green_ln.html" title="colour::e_dark_green_ln macro">e_dark_green_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark green
+as the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_grey.html" title="colour::e_dark_grey macro">e_dark_grey</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark grey as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_grey_ln.html" title="colour::e_dark_grey_ln macro">e_dark_grey_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark grey as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_magenta.html" title="colour::e_dark_magenta macro">e_dark_magenta</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark magenta as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_magenta_ln.html" title="colour::e_dark_magenta_ln macro">e_dark_magenta_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark magenta
+as the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_red.html" title="colour::e_dark_red macro">e_dark_red</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark red as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_red_ln.html" title="colour::e_dark_red_ln macro">e_dark_red_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark red as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_yellow.html" title="colour::e_dark_yellow macro">e_dark_yellow</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using dark yellow as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_dark_yellow_ln.html" title="colour::e_dark_yellow_ln macro">e_dark_yellow_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using dark yellow
+as the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_green.html" title="colour::e_green macro">e_green</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using green as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_green_ln.html" title="colour::e_green_ln macro">e_green_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using green as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_grey.html" title="colour::e_grey macro">e_grey</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using grey as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_grey_ln.html" title="colour::e_grey_ln macro">e_grey_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using grey as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_magenta.html" title="colour::e_magenta macro">e_magenta</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using magenta as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_magenta_ln.html" title="colour::e_magenta_ln macro">e_magenta_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using magenta as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_prnt.html" title="colour::e_prnt macro">e_prnt</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using the current
+default foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_prnt_ln.html" title="colour::e_prnt_ln macro">e_prnt_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using the current
+default foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_red.html" title="colour::e_red macro">e_red</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using red as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_red_ln.html" title="colour::e_red_ln macro">e_red_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using red as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_white.html" title="colour::e_white macro">e_white</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using white as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_white_ln.html" title="colour::e_white_ln macro">e_white_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using white as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_yellow.html" title="colour::e_yellow macro">e_yellow</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprint.html"><code>eprint!</code></a> using yellow as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.e_yellow_ln.html" title="colour::e_yellow_ln macro">e_yellow_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.eprintln.html"><code>eprintln!</code></a> using yellow as
+the foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.green.html" title="colour::green macro">green</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using green as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.green_ln.html" title="colour::green_ln macro">green_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using green as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.grey.html" title="colour::grey macro">grey</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using grey as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.grey_ln.html" title="colour::grey_ln macro">grey_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using grey as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.magenta.html" title="colour::magenta macro">magenta</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using magenta as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.magenta_ln.html" title="colour::magenta_ln macro">magenta_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using magenta as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.prnt.html" title="colour::prnt macro">prnt</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using the current
+default foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.prnt_ln.html" title="colour::prnt_ln macro">prnt_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using the current
+default foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.red.html" title="colour::red macro">red</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using red as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.red_ln.html" title="colour::red_ln macro">red_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using red as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.white.html" title="colour::white macro">white</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using white as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.white_ln.html" title="colour::white_ln macro">white_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using white as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.yellow.html" title="colour::yellow macro">yellow</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.print.html"><code>print!</code></a> using yellow as the
+foreground colour.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.yellow_ln.html" title="colour::yellow_ln macro">yellow_ln</a></div><div class="item-right docblock-short"><p>Macro similar to <a href="https://doc.servo.org/std/macro.println.html"><code>println!</code></a> using yellow as the
+foreground colour.</p>
+</div></div></div></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="colour" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0 (fe5b13d68 2022-05-18)" ></div>
+</body></html>
