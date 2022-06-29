@@ -242,17 +242,12 @@
 <span id="237">237</span>
 <span id="238">238</span>
 <span id="239">239</span>
-<span id="240">240</span>
-<span id="241">241</span>
-<span id="242">242</span>
-<span id="243">243</span>
-<span id="244">244</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">unused_assignments</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>)]</span>
 
 <span class="kw">use</span> <span class="ident">colour</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fs</span>, <span class="ident">io::Write</span>, <span class="ident">thread</span>};
+<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fs</span>, <span class="ident">io::Write</span>};
 
 <span class="kw">fn</span> <span class="ident">credits</span>() {
     <span class="macro">print!</span>(<span class="string">&quot;{esc}c&quot;</span>, <span class="ident">esc</span> <span class="op">=</span> <span class="number">27</span> <span class="kw">as</span> <span class="ident">char</span>);
@@ -283,7 +278,7 @@
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">String::new</span>();
     <span class="ident">std::io::stdin</span>().<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">id</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">id</span>.<span class="ident">trim</span>();
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">w1</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
@@ -292,7 +287,7 @@
         .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
     <span class="ident">w1</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">w2</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
@@ -302,7 +297,7 @@
         .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
     <span class="ident">w2</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">w3</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
 
@@ -311,7 +306,7 @@
         .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
     <span class="ident">w3</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">w4</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
 
@@ -320,7 +315,7 @@
         .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
     <span class="ident">w4</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">watts</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
@@ -330,7 +325,7 @@
         .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
     <span class="ident">watts</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">e_rates</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
 
@@ -339,7 +334,7 @@
         .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
         .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
     <span class="ident">e_rates</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">activity</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
 
@@ -385,12 +380,12 @@
                 .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
                 .<span class="ident">expect</span>(<span class="string">&quot;Not a valid string&quot;</span>);
             <span class="ident">modifer</span> <span class="op">=</span> <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">parse</span>().<span class="ident">expect</span>(<span class="string">&quot;Not a valid number&quot;</span>);
-            <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+            <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
 
             <span class="macro">println!</span>(<span class="string">&quot;-Whats the modifer reason-&quot;</span>);
             <span class="ident">std::io::stdin</span>().<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">mod_reason</span>).<span class="ident">unwrap</span>();
             <span class="ident">mod_reason</span> <span class="op">=</span> <span class="ident">mod_reason</span>.<span class="ident">trim</span>().<span class="ident">to_string</span>();
-            <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+            <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
 
             <span class="macro">println!</span>(<span class="string">&quot;-Type (A/S) for addition and subtraction respectfully-&quot;</span>);
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">modtype</span> <span class="op">=</span> <span class="ident">String::new</span>();
@@ -418,7 +413,7 @@
     <span class="ident">cls</span>();
     <span class="macro">println!</span>(<span class="string">&quot;-{} has made-&quot;</span>, <span class="ident">id</span>);
     <span class="macro">green!</span>(<span class="string">&quot;${} \n&quot;</span>, <span class="ident">payout</span>,);
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     <span class="kw">if</span> <span class="ident">mod_value</span> <span class="op">==</span> <span class="number">1</span> {
         <span class="macro">println!</span>(<span class="string">&quot;-Modified Payout-&quot;</span>);
         <span class="macro">green!</span>(<span class="string">&quot;${} \n&quot;</span>, <span class="ident">mpayout</span>);
@@ -428,7 +423,7 @@
         <span class="macro">println!</span>(<span class="string">&quot;${}&quot;</span>, <span class="ident">modifer</span>);
         <span class="macro">println!</span>(<span class="string">&quot;-Modifer Type-&quot;</span>);
         <span class="macro">println!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">add_sub</span>);
-        <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+        <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     }
     <span class="macro">println!</span>(<span class="string">&quot;-Estimated electric bill-&quot;</span>);
     <span class="macro">red!</span>(<span class="string">&quot;${} \n&quot;</span>, <span class="ident">cost</span>);
@@ -469,7 +464,7 @@
         .<span class="ident">expect</span>(<span class="string">&quot;write failed&quot;</span>);
     <span class="ident">file</span>.<span class="ident">write_all</span>(<span class="ident">ep</span>.<span class="ident">as_bytes</span>()).<span class="ident">expect</span>(<span class="string">&quot;write failed&quot;</span>);
 
-    <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
+    <span class="macro">print!</span>(<span class="string">&quot;&quot;</span>);
     <span class="macro">println!</span>(<span class="string">&quot;Recipt file created.&quot;</span>);
 
     <span class="kw">let</span> <span class="ident">dir</span> <span class="op">=</span> <span class="string">&quot;Recipts&quot;</span>;
@@ -479,15 +474,10 @@
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">privkey</span> <span class="op">=</span> <span class="ident">String::new</span>();
     <span class="ident">std::io::stdin</span>().<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">privkey</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">privkey</span> <span class="op">=</span> <span class="ident">privkey</span>.<span class="ident">trim</span>();
-    <span class="kw">loop</span> {
-        <span class="kw">if</span> <span class="ident">privkey</span> <span class="op">==</span> <span class="string">&quot;3121&quot;</span> {
-            <span class="macro">println!</span>(<span class="string">&quot;-Tax Collected-&quot;</span>);
-            <span class="macro">green!</span>(<span class="string">&quot;${}\n&quot;</span>, <span class="ident">tax</span>);
-            <span class="ident">get_input</span>();
-            <span class="kw">break</span>;
-        } <span class="kw">else</span> {
-            <span class="kw">break</span>;
-        }
+    <span class="kw">if</span> <span class="ident">privkey</span> <span class="op">==</span> <span class="string">&quot;3121&quot;</span> {
+        <span class="macro">println!</span>(<span class="string">&quot;-Tax Collected-&quot;</span>);
+        <span class="macro">green!</span>(<span class="string">&quot;${}\n&quot;</span>, <span class="ident">tax</span>);
+        <span class="ident">get_input</span>();
     }
     <span class="ident">credits</span>();
 }
