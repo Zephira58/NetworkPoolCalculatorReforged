@@ -28,3 +28,4 @@ If you used the installer please check your programs folder
 
 ![image](https://user-images.githubusercontent.com/66909997/169682597-cb35683f-69ab-47ed-93f6-4a8b1ae512f5.png)
 
+<!-- Small test to see if github actions runs automaticly
