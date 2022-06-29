@@ -4,18 +4,26 @@
 
 use chrono::Utc;
 use colour::*;
-use std::{fs, io::Write, thread, time::Duration};
+use std::{fs, io::Write, thread};
 
 fn credits() {
     print!("{esc}c", esc = 27 as char);
     println!("Made by Xanthus");
     println!("Check out my other works at https://github.com/Xanthus58");
     println!("Email me at 'Xanthus58@protonmail.com'");
-    thread::sleep(Duration::from_secs(5));
+    get_input();
 }
 
 fn cls() {
     print!("{esc}c", esc = 27 as char);
+}
+
+//function that gets user input 
+fn get_input() -> String {
+    println!("press enter to continue");
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("Failed to read line");
+    input.trim().to_string()
 }
 
 fn main() {
@@ -155,7 +163,7 @@ fn main() {
             break;
         } else {
             red!("Invalid input, please respond with 'Y' or 'N'");
-            thread::sleep(Duration::from_secs(5));
+            get_input();
         }
     }
     cls();
@@ -228,8 +236,8 @@ fn main() {
     loop {
         if privkey == "3121" {
             println!("-Tax Collected-");
-            green!("${}", tax);
-            thread::sleep(Duration::from_secs(5));
+            green!("${}\n", tax);
+            get_input();
             break;
         } else {
             break;
