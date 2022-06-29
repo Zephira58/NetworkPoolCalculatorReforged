@@ -2,7 +2,6 @@
 #![allow(unused_variables)]
 #![allow(non_snake_case)]
 
-use chrono::Utc;
 use colour::*;
 use std::{fs, io::Write, thread};
 
@@ -28,7 +27,6 @@ fn get_input() -> String {
 
 fn main() {
     cls();
-    let time = Utc::now();
 
     println!("-Enter the account ID you wish to calculate for-");
     let mut id = String::new();
@@ -167,7 +165,6 @@ fn main() {
         }
     }
     cls();
-    println!("{}", time);
     println!("-{} has made-", id);
     green!("${} \n", payout,);
     print!("\n");
@@ -187,10 +184,8 @@ fn main() {
     println!("-Estimated profit margin-");
     green!("${} \n", profit);
 
-    let t = time.to_string();
     let p = payout.to_string();
     let mut file = std::fs::File::create(id).expect("create failed");
-    file.write_all(t.as_bytes()).expect("write failed");
     file.write_all("\n-".as_bytes()).expect("write failed");
     file.write_all(id.as_bytes()).expect("write failed");
     file.write_all(" Has Made-\n$".as_bytes())
