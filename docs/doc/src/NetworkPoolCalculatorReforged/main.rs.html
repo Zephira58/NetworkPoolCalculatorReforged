@@ -242,29 +242,42 @@
 <span id="237">237</span>
 <span id="238">238</span>
 <span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">unused_assignments</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">non_snake_case</span>)]</span>
 
-<span class="kw">use</span> <span class="ident">chrono::Utc</span>;
 <span class="kw">use</span> <span class="ident">colour</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fs</span>, <span class="ident">io::Write</span>, <span class="ident">thread</span>, <span class="ident">time::Duration</span>};
+<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fs</span>, <span class="ident">io::Write</span>, <span class="ident">thread</span>};
 
 <span class="kw">fn</span> <span class="ident">credits</span>() {
     <span class="macro">print!</span>(<span class="string">&quot;{esc}c&quot;</span>, <span class="ident">esc</span> <span class="op">=</span> <span class="number">27</span> <span class="kw">as</span> <span class="ident">char</span>);
     <span class="macro">println!</span>(<span class="string">&quot;Made by Xanthus&quot;</span>);
     <span class="macro">println!</span>(<span class="string">&quot;Check out my other works at https://github.com/Xanthus58&quot;</span>);
     <span class="macro">println!</span>(<span class="string">&quot;Email me at &#39;Xanthus58@protonmail.com&#39;&quot;</span>);
-    <span class="ident">thread::sleep</span>(<span class="ident">Duration::from_secs</span>(<span class="number">5</span>));
+    <span class="ident">get_input</span>();
 }
 
 <span class="kw">fn</span> <span class="ident">cls</span>() {
     <span class="macro">print!</span>(<span class="string">&quot;{esc}c&quot;</span>, <span class="ident">esc</span> <span class="op">=</span> <span class="number">27</span> <span class="kw">as</span> <span class="ident">char</span>);
 }
 
+<span class="comment">//function that gets user input</span>
+<span class="kw">fn</span> <span class="ident">get_input</span>() -&gt; <span class="ident">String</span> {
+    <span class="macro">println!</span>(<span class="string">&quot;press enter to continue&quot;</span>);
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">String::new</span>();
+    <span class="ident">std::io::stdin</span>()
+        .<span class="ident">read_line</span>(<span class="kw-2">&amp;mut</span> <span class="ident">input</span>)
+        .<span class="ident">expect</span>(<span class="string">&quot;Failed to read line&quot;</span>);
+    <span class="ident">input</span>.<span class="ident">trim</span>().<span class="ident">to_string</span>()
+}
+
 <span class="kw">fn</span> <span class="ident">main</span>() {
     <span class="ident">cls</span>();
-    <span class="kw">let</span> <span class="ident">time</span> <span class="op">=</span> <span class="ident">Utc::now</span>();
 
     <span class="macro">println!</span>(<span class="string">&quot;-Enter the account ID you wish to calculate for-&quot;</span>);
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">String::new</span>();
@@ -399,11 +412,10 @@
             <span class="kw">break</span>;
         } <span class="kw">else</span> {
             <span class="macro">red!</span>(<span class="string">&quot;Invalid input, please respond with &#39;Y&#39; or &#39;N&#39;&quot;</span>);
-            <span class="ident">thread::sleep</span>(<span class="ident">Duration::from_secs</span>(<span class="number">5</span>));
+            <span class="ident">get_input</span>();
         }
     }
     <span class="ident">cls</span>();
-    <span class="macro">println!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">time</span>);
     <span class="macro">println!</span>(<span class="string">&quot;-{} has made-&quot;</span>, <span class="ident">id</span>);
     <span class="macro">green!</span>(<span class="string">&quot;${} \n&quot;</span>, <span class="ident">payout</span>,);
     <span class="macro">print!</span>(<span class="string">&quot;\n&quot;</span>);
@@ -423,10 +435,8 @@
     <span class="macro">println!</span>(<span class="string">&quot;-Estimated profit margin-&quot;</span>);
     <span class="macro">green!</span>(<span class="string">&quot;${} \n&quot;</span>, <span class="ident">profit</span>);
 
-    <span class="kw">let</span> <span class="ident">t</span> <span class="op">=</span> <span class="ident">time</span>.<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">payout</span>.<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file</span> <span class="op">=</span> <span class="ident">std::fs::File::create</span>(<span class="ident">id</span>).<span class="ident">expect</span>(<span class="string">&quot;create failed&quot;</span>);
-    <span class="ident">file</span>.<span class="ident">write_all</span>(<span class="ident">t</span>.<span class="ident">as_bytes</span>()).<span class="ident">expect</span>(<span class="string">&quot;write failed&quot;</span>);
     <span class="ident">file</span>.<span class="ident">write_all</span>(<span class="string">&quot;\n-&quot;</span>.<span class="ident">as_bytes</span>()).<span class="ident">expect</span>(<span class="string">&quot;write failed&quot;</span>);
     <span class="ident">file</span>.<span class="ident">write_all</span>(<span class="ident">id</span>.<span class="ident">as_bytes</span>()).<span class="ident">expect</span>(<span class="string">&quot;write failed&quot;</span>);
     <span class="ident">file</span>.<span class="ident">write_all</span>(<span class="string">&quot; Has Made-\n$&quot;</span>.<span class="ident">as_bytes</span>())
@@ -472,8 +482,8 @@
     <span class="kw">loop</span> {
         <span class="kw">if</span> <span class="ident">privkey</span> <span class="op">==</span> <span class="string">&quot;3121&quot;</span> {
             <span class="macro">println!</span>(<span class="string">&quot;-Tax Collected-&quot;</span>);
-            <span class="macro">green!</span>(<span class="string">&quot;${}&quot;</span>, <span class="ident">tax</span>);
-            <span class="ident">thread::sleep</span>(<span class="ident">Duration::from_secs</span>(<span class="number">5</span>));
+            <span class="macro">green!</span>(<span class="string">&quot;${}\n&quot;</span>, <span class="ident">tax</span>);
+            <span class="ident">get_input</span>();
             <span class="kw">break</span>;
         } <span class="kw">else</span> {
             <span class="kw">break</span>;

@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["cls",""],["credits",""],["main",""]]});
+initSidebarItems({"fn":[["cls",""],["credits",""],["get_input",""],["main",""]]});
