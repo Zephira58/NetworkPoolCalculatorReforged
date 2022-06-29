@@ -17,11 +17,13 @@ fn cls() {
     print!("{esc}c", esc = 27 as char);
 }
 
-//function that gets user input 
+//function that gets user input
 fn get_input() -> String {
     println!("press enter to continue");
     let mut input = String::new();
-    std::io::stdin().read_line(&mut input).expect("Failed to read line");
+    std::io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
     input.trim().to_string()
 }
 
