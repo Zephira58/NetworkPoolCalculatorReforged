@@ -3,7 +3,7 @@
 #![allow(non_snake_case)]
 
 use colour::*;
-use std::{fs, io::Write, thread};
+use std::{fs, io::Write};
 
 fn credits() {
     print!("{esc}c", esc = 27 as char);
@@ -34,7 +34,7 @@ fn main() {
     let mut id = String::new();
     std::io::stdin().read_line(&mut id).unwrap();
     let id = id.trim();
-    print!("\n");
+    print!("");
 
     let mut w1: f32 = 0.0;
     let mut input = String::new();
@@ -43,7 +43,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Not a valid string");
     w1 = input.trim().parse().expect("Not a valid number");
-    print!("\n");
+    print!("");
 
     let mut w2: f32 = 0.0;
     let mut input = String::new();
@@ -53,7 +53,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Not a valid string");
     w2 = input.trim().parse().expect("Not a valid number");
-    print!("\n");
+    print!("");
     let mut w3: f32 = 0.0;
     let mut input = String::new();
 
@@ -62,7 +62,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Not a valid string");
     w3 = input.trim().parse().expect("Not a valid number");
-    print!("\n");
+    print!("");
     let mut w4: f32 = 0.0;
     let mut input = String::new();
 
@@ -71,7 +71,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Not a valid string");
     w4 = input.trim().parse().expect("Not a valid number");
-    print!("\n");
+    print!("");
 
     let mut watts: f32 = 0.0;
     let mut input = String::new();
@@ -81,7 +81,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Not a valid string");
     watts = input.trim().parse().expect("Not a valid number");
-    print!("\n");
+    print!("");
     let mut e_rates: f32 = 0.0;
     let mut input = String::new();
 
@@ -90,7 +90,7 @@ fn main() {
         .read_line(&mut input)
         .expect("Not a valid string");
     e_rates = input.trim().parse().expect("Not a valid number");
-    print!("\n");
+    print!("");
     let mut activity: f32 = 0.0;
     let mut input = String::new();
 
@@ -136,12 +136,12 @@ fn main() {
                 .read_line(&mut input)
                 .expect("Not a valid string");
             modifer = input.trim().parse().expect("Not a valid number");
-            print!("\n");
+            print!("");
 
             println!("-Whats the modifer reason-");
             std::io::stdin().read_line(&mut mod_reason).unwrap();
             mod_reason = mod_reason.trim().to_string();
-            print!("\n");
+            print!("");
 
             println!("-Type (A/S) for addition and subtraction respectfully-");
             let mut modtype = String::new();
@@ -169,7 +169,7 @@ fn main() {
     cls();
     println!("-{} has made-", id);
     green!("${} \n", payout,);
-    print!("\n");
+    print!("");
     if mod_value == 1 {
         println!("-Modified Payout-");
         green!("${} \n", mpayout);
@@ -179,7 +179,7 @@ fn main() {
         println!("${}", modifer);
         println!("-Modifer Type-");
         println!("{}", add_sub);
-        print!("\n");
+        print!("");
     }
     println!("-Estimated electric bill-");
     red!("${} \n", cost);
@@ -220,7 +220,7 @@ fn main() {
         .expect("write failed");
     file.write_all(ep.as_bytes()).expect("write failed");
 
-    print!("\n");
+    print!("");
     println!("Recipt file created.");
 
     let dir = "Recipts";
@@ -230,15 +230,10 @@ fn main() {
     let mut privkey = String::new();
     std::io::stdin().read_line(&mut privkey).unwrap();
     let privkey = privkey.trim();
-    loop {
-        if privkey == "3121" {
-            println!("-Tax Collected-");
-            green!("${}\n", tax);
-            get_input();
-            break;
-        } else {
-            break;
-        }
+    if privkey == "3121" {
+        println!("-Tax Collected-");
+        green!("${}\n", tax);
+        get_input();
     }
     credits();
 }
