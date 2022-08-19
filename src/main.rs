@@ -44,9 +44,9 @@ struct MyApp {
     w2: f32,
     w3: f32,
     w4: f32,
-    watts: u32,
+    watts: f32,
     e_rates: f32,
-    activity: u32,
+    activity: f32,
 }
 
 impl Default for MyApp {
@@ -58,9 +58,9 @@ impl Default for MyApp {
             w2: 0.0,
             w3: 0.0,
             w4: 0.0,
-            watts: 0,
+            watts: 0.0,
             e_rates: 0.0,
-            activity: 0,
+            activity: 0.0,
         }
     }
 }
@@ -104,14 +104,40 @@ impl eframe::App for MyApp {
 
             ui.horizontal(|ui| {
                 ui.label("Enter the average daily activity level in hours");
-                let activity = ui.add(egui::Slider::new(&mut self.activity, 0..=24));
+                let activity = ui.add(egui::Slider::new(&mut self.activity, 0.0..=24.0));
             });
+
+            let month_activity = self.activity * 30.0;
+            let month_wats: f32 = self.watts * month_activity;
+            let kw = month_wats / 1000.0;
+            let cost = self.e_rates * kw;
+            let define_monthly = self.w1 + self.w2 + self.w3 + self.w4;
+            let mean = define_monthly / 4.0;
+            let weekly = mean * 7.0;
+            let month = weekly * 4.0;
+            let tax = month * 0.2;
+            let payout = month - tax;
+            let profit = payout - cost;
 
             ui.separator();
             ui.label(format!("\nAccount Holder: {:?}", self.name));
             ui.label(format!("Wattage: {:?}", self.watts));
             ui.label(format!("Eletricity rates: {:?}", self.e_rates));
-            ui.label(format!("Activity: {:?}", self.activity));
+            ui.label(format!("Activity: {:?}\n", self.activity));
+            ui.label(format!("Monthly activity: {:?}", month_activity));
+            ui.label(format!("Monthly wattage: {:?}", month_wats));
+            ui.label(format!("Monthly kw: {:?}", kw));
+            ui.label(format!("Monthly cost: {:?}", cost));
+            ui.label(format!("Define monthly payouts: {:?}", define_monthly));
+            ui.label(format!("Mean monthly payouts: {:?}", mean));
+            ui.label(format!("Weekly payouts: {:?}", weekly));
+            ui.label(format!("Monthly payouts: {:?}", month));
+            ui.label(format!("Tax: {:?}", tax));
+            ui.label(format!("Payout: {:?}", payout));
+            ui.label(format!("Profit: {:?}", profit));
+            
+
+
         });
     }
 }
