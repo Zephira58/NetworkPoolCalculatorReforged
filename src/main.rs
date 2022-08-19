@@ -38,23 +38,29 @@ fn main() {
 }
 
 struct MyApp {
-    id: u32,
+    name: String,
     modifer_check: bool,
-    w1: u32,
-    w2: u32,
-    w3: u32,
-    w4: u32,
+    w1: f32,
+    w2: f32,
+    w3: f32,
+    w4: f32,
+    watts: u32,
+    e_rates: f32,
+    activity: u32,
 }
 
 impl Default for MyApp {
     fn default() -> Self {
         Self {
-            id: 0,
+            name: "".to_string(),
             modifer_check: false,
-            w1: 0,
-            w2: 0,
-            w3: 0,
-            w4: 0,
+            w1: 0.0,
+            w2: 0.0,
+            w3: 0.0,
+            w4: 0.0,
+            watts: 0,
+            e_rates: 0.0,
+            activity: 0,
         }
     }
 }
@@ -65,9 +71,10 @@ impl eframe::App for MyApp {
             ui.style_mut().visuals = Visuals::dark();
 
             ui.horizontal(|ui| {
-                ui.label("Enter the account ID:");
-                let id = ui.add(egui::DragValue::new(&mut self.id));
+                ui.label("Enter the account holder username:");
+                let id = ui.text_edit_singleline(&mut self.name);
             });
+
             let checkbox = ui.checkbox(&mut self.modifer_check, "Are there any modifiers?");
 
             if checkbox.clicked() {
@@ -79,8 +86,32 @@ impl eframe::App for MyApp {
                 println!("Modcheck: {}", self.modifer_check);
             }
 
+            ui.label("\nEnter the average weekly payouts");
+            let w1 = ui.add(egui::DragValue::new(&mut self.w1));
+            let w2 = ui.add(egui::DragValue::new(&mut self.w2));
+            let w3 = ui.add(egui::DragValue::new(&mut self.w3));
+            let w4 = ui.add(egui::DragValue::new(&mut self.w4));
+
+            ui.horizontal(|ui| {
+            ui.label("\nEnter your pools current wattage");
+            let watts = ui.add(egui::DragValue::new(&mut self.watts));
+            });
+
+            ui.horizontal(|ui| {
+            ui.label("Enter your current kw/h price");
+            let e_rates = ui.add(egui::DragValue::new(&mut self.e_rates));
+            });
+
+            ui.horizontal(|ui| {
+            ui.label("Enter the average daily activity level in hours");
+            let activity = ui.add(egui::Slider::new(&mut self.activity, 0..=24));
+            });
+
             ui.separator();
-            ui.label(format!("\nAccount ID: {:?}", self.id));
+            ui.label(format!("\nAccount Holder: {:?}", self.name));
+            ui.label(format!("Wattage: {:?}", self.watts));
+            ui.label(format!("Eletricity rates: {:?}", self.e_rates));
+            ui.label(format!("Activity: {:?}", self.activity));
         });
     }
 }
