@@ -1,1 +1,0 @@
-window.ALL_CRATES = ["NetworkPoolCalculatorReforged","bitflags","cfg_if","chrono","colour","crossterm","instant","lazy_static","libc","lock_api","log","mio","num_integer","num_traits","parking_lot","parking_lot_core","scopeguard","signal_hook","signal_hook_registry","smallvec","time"];

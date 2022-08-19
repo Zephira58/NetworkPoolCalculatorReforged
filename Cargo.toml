@@ -3,8 +3,15 @@ name = "NetworkPoolCalculatorReforged"
 version = "1.1.1"
 edition = "2021"
 authors = ["Xanthus58 <xanthus58@protonmail.com>"]
-
+license = "MIT"
+repository = "https://github.com/Xanthus58/NetworkPoolCalculatorReforged"
+readme = "README.md"
+description = "A small commissioned CLI based application made for managing Crypto Pool Payments"
+documentation = "https://github.com/Xanthus58/NetworkPoolCalculatorReforged/tree/master/docs"
+keywords = ["crypto", "pool", "payment", "cli", "calculator"]
+categories = ["crypto", "pool", "payment", "cli", "calculator"]
+publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-colour = "0.6.0"
+eframe = "0.18.0"

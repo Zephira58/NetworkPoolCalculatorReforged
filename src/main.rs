@@ -2,238 +2,297 @@
 #![allow(unused_variables)]
 #![allow(non_snake_case)]
 
-use colour::*;
-use std::{fs, io::Write};
+use eframe::egui;
+use eframe::egui::{Style, Visuals};
 
-fn credits() {
-    print!("{esc}c", esc = 27 as char);
-    println!("Made by Xanthus");
-    println!("Check out my other works at https://github.com/Xanthus58");
-    println!("Email me at 'Xanthus58@protonmail.com'");
-    get_input();
-}
+//use std::{fs, io::Write};
+
+//fn credits() {
+//    print!("{esc}c", esc = 27 as char);
+//    println!("Made by Xanthus");
+//    println!("Check out my other works at https://github.com/Xanthus58");
+//    println!("Email me at 'Xanthus58@protonmail.com'");
+//}
 
 fn cls() {
     print!("{esc}c", esc = 27 as char);
 }
 
 //function that gets user input
-fn get_input() -> String {
-    println!("press enter to continue");
-    let mut input = String::new();
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-    input.trim().to_string()
-}
+//fn get_input() -> String {
+//    println!("press enter to continue");
+//    let mut input = String::new();
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Failed to read line");
+//    input.trim().to_string()
+//}
 
 fn main() {
-    cls();
+    let options = eframe::NativeOptions::default();
+    eframe::run_native(
+        "NetworkPoolCalculatorReforged",
+        options,
+        Box::new(|_cc| Box::new(MyApp::default())),
+    );
+}
 
-    println!("-Enter the account ID you wish to calculate for-");
-    let mut id = String::new();
-    std::io::stdin().read_line(&mut id).unwrap();
-    let id = id.trim();
-    print!("");
+struct MyApp {
+    id: u32,
+    modifer_check: bool,
+    w1: u32,
+    w2: u32,
+    w3: u32,
+    w4: u32,
+}
 
-    let mut w1: f32 = 0.0;
-    let mut input = String::new();
-    println!("-Please enter the first week of average payout-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    w1 = input.trim().parse().expect("Not a valid number");
-    print!("");
-
-    let mut w2: f32 = 0.0;
-    let mut input = String::new();
-
-    println!("-Please enter the seccond week of average payout-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    w2 = input.trim().parse().expect("Not a valid number");
-    print!("");
-    let mut w3: f32 = 0.0;
-    let mut input = String::new();
-
-    println!("-Please enter the third week of average payout-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    w3 = input.trim().parse().expect("Not a valid number");
-    print!("");
-    let mut w4: f32 = 0.0;
-    let mut input = String::new();
-
-    println!("-Please enter the fourth week of average payout-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    w4 = input.trim().parse().expect("Not a valid number");
-    print!("");
-
-    let mut watts: f32 = 0.0;
-    let mut input = String::new();
-
-    println!("-Please input your current Kw/h usage(watts)-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    watts = input.trim().parse().expect("Not a valid number");
-    print!("");
-    let mut e_rates: f32 = 0.0;
-    let mut input = String::new();
-
-    println!("-Please enter your Kw/h electric costs-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    e_rates = input.trim().parse().expect("Not a valid number");
-    print!("");
-    let mut activity: f32 = 0.0;
-    let mut input = String::new();
-
-    println!("-Please enter your expected mining activity per day (In hourly rate IE: 14, 5, 24)-");
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Not a valid string");
-    activity = input.trim().parse().expect("Not a valid number");
-
-    let month_activity = activity * 30.0;
-    let month_wats = watts * month_activity;
-    let kw = month_wats / 1000.0;
-    let cost = e_rates * kw;
-    let modifer = 0;
-
-    let define_monthly = w1 + w2 + w3 + w4;
-    let mean = define_monthly / 4.0;
-    let weekly = mean * 7.0;
-    let month = weekly * 4.0;
-    let tax = month * 0.2;
-    let payout = month - tax;
-    let profit = payout - cost;
-    let mut mpayout = payout;
-
-    let mut modifer: f32 = 0.0;
-    let mut mod_reason = String::new();
-    let mut mod_value = 0;
-    let mut add_sub = "";
-    loop {
-        cls();
-        let mut mod_yn = String::new();
-        println!("-Are there any modifiers (Y/N)-");
-        std::io::stdin().read_line(&mut mod_yn).unwrap();
-        let mod_yn = mod_yn.trim();
-
-        if mod_yn == "y" || mod_yn == "Y" {
-            mod_value = 1;
-            cls();
-
-            let mut input = String::new();
-            println!("-Please enter the modifer-");
-            std::io::stdin()
-                .read_line(&mut input)
-                .expect("Not a valid string");
-            modifer = input.trim().parse().expect("Not a valid number");
-            print!("");
-
-            println!("-Whats the modifer reason-");
-            std::io::stdin().read_line(&mut mod_reason).unwrap();
-            mod_reason = mod_reason.trim().to_string();
-            print!("");
-
-            println!("-Type (A/S) for addition and subtraction respectfully-");
-            let mut modtype = String::new();
-            let _b1 = std::io::stdin().read_line(&mut modtype).unwrap();
-            let modtype = modtype.trim();
-
-            if modtype == "s" || modtype == "S" {
-                add_sub = "Subtraction";
-                mpayout = payout - modifer;
-                break;
-            } else if modtype == "a" || modtype == "A" {
-                add_sub = "Addition";
-                mpayout = payout + modifer;
-                break;
-            } else {
-                break;
-            }
-        } else if mod_yn == "n" || mod_yn == "N" {
-            break;
-        } else {
-            red!("Invalid input, please respond with 'Y' or 'N'");
-            get_input();
+impl Default for MyApp {
+    fn default() -> Self {
+        Self {
+            id: 0,
+            modifer_check: false,
+            w1: 0,
+            w2: 0,
+            w3: 0,
+            w4: 0,
         }
     }
-    cls();
-    println!("-{} has made-", id);
-    green!("${} \n", payout,);
-    print!("");
-    if mod_value == 1 {
-        println!("-Modified Payout-");
-        green!("${} \n", mpayout);
-        println!("-Modifier reason-");
-        println!("{}", mod_reason);
-        println!("-Modifer amount-");
-        println!("${}", modifer);
-        println!("-Modifer Type-");
-        println!("{}", add_sub);
-        print!("");
-    }
-    println!("-Estimated electric bill-");
-    red!("${} \n", cost);
-    println!("-Estimated profit margin-");
-    green!("${} \n", profit);
-
-    let p = payout.to_string();
-    let mut file = std::fs::File::create(id).expect("create failed");
-    file.write_all("\n-".as_bytes()).expect("write failed");
-    file.write_all(id.as_bytes()).expect("write failed");
-    file.write_all(" Has Made-\n$".as_bytes())
-        .expect("write failed");
-    file.write_all(p.as_bytes()).expect("write failed");
-    file.write_all("\n".as_bytes()).expect("write failed");
-    if mod_value == 1 {
-        let mp = mpayout.to_string();
-        let m = modifer.to_string();
-        file.write_all("\n-Modified Payout-\n$".as_bytes())
-            .expect("write failed");
-        file.write_all(mp.as_bytes()).expect("write failed");
-        file.write_all("\n-Modifer Reason-\n".as_bytes())
-            .expect("write failed");
-        file.write_all(mod_reason.as_bytes()).expect("write failed");
-        file.write_all("\n-Modifer Amount-\n$".as_bytes())
-            .expect("write failed");
-        file.write_all(m.as_bytes()).expect("write failed");
-        file.write_all("\n-Modifer Type-\n".as_bytes())
-            .expect("write failed");
-        file.write_all(add_sub.as_bytes()).expect("write failed");
-        file.write_all("\n".as_bytes()).expect("write failed");
-    }
-    let c = cost.to_string();
-    let ep = profit.to_string();
-    file.write_all("\n-Estimated electric bill-\n$".as_bytes())
-        .expect("write failed");
-    file.write_all(c.as_bytes()).expect("write failed");
-    file.write_all("\n-Estimated profit margin-\n$".as_bytes())
-        .expect("write failed");
-    file.write_all(ep.as_bytes()).expect("write failed");
-
-    print!("");
-    println!("Recipt file created.");
-
-    let dir = "Recipts";
-    fs::create_dir_all(dir).unwrap();
-    std::fs::rename(id, format!("{dir}/{id}.txt")).unwrap();
-
-    let mut privkey = String::new();
-    std::io::stdin().read_line(&mut privkey).unwrap();
-    let privkey = privkey.trim();
-    if privkey == "3121" {
-        println!("-Tax Collected-");
-        green!("${}\n", tax);
-        get_input();
-    }
-    credits();
 }
+
+impl eframe::App for MyApp {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        egui::CentralPanel::default().show(ctx, |ui| {
+            ui.style_mut().visuals = Visuals::dark();
+
+            ui.horizontal(|ui| {
+                ui.label("Enter the account ID:");
+                let id = ui.add(egui::DragValue::new(&mut self.id));
+            });
+            let checkbox = ui.checkbox(&mut self.modifer_check, "Are there any modifiers?");
+
+            if checkbox.clicked() {
+                self.modifer_check = true;
+                println!("Modcheck: {}", self.modifer_check);
+            };
+            if checkbox.secondary_clicked() {
+                self.modifer_check = false;
+                println!("Modcheck: {}", self.modifer_check);
+            }
+
+            ui.separator();
+            ui.label(format!("\nAccount ID: {:?}", self.id));
+        });
+    }
+}
+
+//fn main() {
+//    cls();
+//
+//    println!("-Enter the account ID you wish to calculate for-");
+//    let mut id = String::new();
+//    std::io::stdin().read_line(&mut id).unwrap();
+//    let id = id.trim();
+//    print!("");
+//
+//    let mut w1: f32 = 0.0;
+//    let mut input = String::new();
+//    println!("-Please enter the first week of average payout-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    w1 = input.trim().parse().expect("Not a valid number");
+//    print!("");
+//
+//    let mut w2: f32 = 0.0;
+//    let mut input = String::new();
+//
+//    println!("-Please enter the seccond week of average payout-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    w2 = input.trim().parse().expect("Not a valid number");
+//    print!("");
+//    let mut w3: f32 = 0.0;
+//    let mut input = String::new();
+//
+//    println!("-Please enter the third week of average payout-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    w3 = input.trim().parse().expect("Not a valid number");
+//    print!("");
+//    let mut w4: f32 = 0.0;
+//    let mut input = String::new();
+//
+//    println!("-Please enter the fourth week of average payout-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    w4 = input.trim().parse().expect("Not a valid number");
+//    print!("");
+//
+//    let mut watts: f32 = 0.0;
+//    let mut input = String::new();
+//
+//    println!("-Please input your current Kw/h usage(watts)-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    watts = input.trim().parse().expect("Not a valid number");
+//    print!("");
+//    let mut e_rates: f32 = 0.0;
+//    let mut input = String::new();
+//
+//    println!("-Please enter your Kw/h electric costs-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    e_rates = input.trim().parse().expect("Not a valid number");
+//    print!("");
+//    let mut activity: f32 = 0.0;
+//    let mut input = String::new();
+//
+//    println!("-Please enter your expected mining activity per day (In hourly rate IE: 14, 5, 24)-");
+//    std::io::stdin()
+//        .read_line(&mut input)
+//        .expect("Not a valid string");
+//    activity = input.trim().parse().expect("Not a valid number");
+//
+//    let month_activity = activity * 30.0;
+//    let month_wats = watts * month_activity;
+//    let kw = month_wats / 1000.0;
+//    let cost = e_rates * kw;
+//    let modifer = 0;
+//
+//    let define_monthly = w1 + w2 + w3 + w4;
+//    let mean = define_monthly / 4.0;
+//    let weekly = mean * 7.0;
+//    let month = weekly * 4.0;
+//    let tax = month * 0.2;
+//    let payout = month - tax;
+//    let profit = payout - cost;
+//    let mut mpayout = payout;
+//
+//    let mut modifer: f32 = 0.0;
+//    let mut mod_reason = String::new();
+//    let mut mod_value = 0;
+//    let mut add_sub = "";
+//    loop {
+//        cls();
+//        let mut mod_yn = String::new();
+//        println!("-Are there any modifiers (Y/N)-");
+//        std::io::stdin().read_line(&mut mod_yn).unwrap();
+//        let mod_yn = mod_yn.trim();
+//
+//        if mod_yn == "y" || mod_yn == "Y" {
+//            mod_value = 1;
+//            cls();
+//
+//            let mut input = String::new();
+//            println!("-Please enter the modifer-");
+//            std::io::stdin()
+//                .read_line(&mut input)
+//                .expect("Not a valid string");
+//            modifer = input.trim().parse().expect("Not a valid number");
+//            print!("");
+//
+//            println!("-Whats the modifer reason-");
+//            std::io::stdin().read_line(&mut mod_reason).unwrap();
+//            mod_reason = mod_reason.trim().to_string();
+//            print!("");
+//
+//            println!("-Type (A/S) for addition and subtraction respectfully-");
+//            let mut modtype = String::new();
+//            let _b1 = std::io::stdin().read_line(&mut modtype).unwrap();
+//            let modtype = modtype.trim();
+//
+//            if modtype == "s" || modtype == "S" {
+//                add_sub = "Subtraction";
+//                mpayout = payout - modifer;
+//                break;
+//            } else if modtype == "a" || modtype == "A" {
+//                add_sub = "Addition";
+//                mpayout = payout + modifer;
+//                break;
+//            } else {
+//                break;
+//            }
+//        } else if mod_yn == "n" || mod_yn == "N" {
+//            break;
+//        } else {
+//            println!("Invalid input, please respond with 'Y' or 'N'");
+//            get_input();
+//        }
+//    }
+//    cls();
+//    println!("-{} has made-", id);
+//    println!("${} \n", payout,);
+//    print!("");
+//    if mod_value == 1 {
+//        println!("-Modified Payout-");
+//        println!("${} \n", mpayout);
+//        println!("-Modifier reason-");
+//        println!("{}", mod_reason);
+//        println!("-Modifer amount-");
+//        println!("${}", modifer);
+//        println!("-Modifer Type-");
+//        println!("{}", add_sub);
+//        print!("");
+//    }
+//    println!("-Estimated electric bill-");
+//    println!("${} \n", cost);
+//    println!("-Estimated profit margin-");
+//    println!("${} \n", profit);
+//
+//    let p = payout.to_string();
+//    let mut file = std::fs::File::create(id).expect("create failed");
+//    file.write_all("\n-".as_bytes()).expect("write failed");
+//    file.write_all(id.as_bytes()).expect("write failed");
+//    file.write_all(" Has Made-\n$".as_bytes())
+//        .expect("write failed");
+//    file.write_all(p.as_bytes()).expect("write failed");
+//    file.write_all("\n".as_bytes()).expect("write failed");
+//    if mod_value == 1 {
+//        let mp = mpayout.to_string();
+//        let m = modifer.to_string();
+//        file.write_all("\n-Modified Payout-\n$".as_bytes())
+//            .expect("write failed");
+//        file.write_all(mp.as_bytes()).expect("write failed");
+//        file.write_all("\n-Modifer Reason-\n".as_bytes())
+//            .expect("write failed");
+//        file.write_all(mod_reason.as_bytes()).expect("write failed");
+//        file.write_all("\n-Modifer Amount-\n$".as_bytes())
+//            .expect("write failed");
+//        file.write_all(m.as_bytes()).expect("write failed");
+//        file.write_all("\n-Modifer Type-\n".as_bytes())
+//            .expect("write failed");
+//        file.write_all(add_sub.as_bytes()).expect("write failed");
+//        file.write_all("\n".as_bytes()).expect("write failed");
+//    }
+//    let c = cost.to_string();
+//    let ep = profit.to_string();
+//    file.write_all("\n-Estimated electric bill-\n$".as_bytes())
+//        .expect("write failed");
+//    file.write_all(c.as_bytes()).expect("write failed");
+//    file.write_all("\n-Estimated profit margin-\n$".as_bytes())
+//        .expect("write failed");
+//    file.write_all(ep.as_bytes()).expect("write failed");
+//
+//    print!("");
+//    println!("Recipt file created.");
+//
+//    let dir = "Recipts";
+//    fs::create_dir_all(dir).unwrap();
+//    std::fs::rename(id, format!("{dir}/{id}.txt")).unwrap();
+//
+//    let mut privkey = String::new();
+//    std::io::stdin().read_line(&mut privkey).unwrap();
+//    let privkey = privkey.trim();
+//    if privkey == "3121" {
+//        println!("-Tax Collected-");
+//        println!("${}\n", tax);
+//        get_input();
+//    }
+//    credits();
+//}
+//
