@@ -135,9 +135,6 @@ impl eframe::App for MyApp {
             ui.label(format!("Tax: {:?}", tax));
             ui.label(format!("Payout: {:?}", payout));
             ui.label(format!("Profit: {:?}", profit));
-            
-
-
         });
     }
 }
