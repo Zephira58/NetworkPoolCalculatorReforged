@@ -93,18 +93,18 @@ impl eframe::App for MyApp {
             let w4 = ui.add(egui::DragValue::new(&mut self.w4));
 
             ui.horizontal(|ui| {
-            ui.label("\nEnter your pools current wattage");
-            let watts = ui.add(egui::DragValue::new(&mut self.watts));
+                ui.label("\nEnter your pools current wattage");
+                let watts = ui.add(egui::DragValue::new(&mut self.watts));
             });
 
             ui.horizontal(|ui| {
-            ui.label("Enter your current kw/h price");
-            let e_rates = ui.add(egui::DragValue::new(&mut self.e_rates));
+                ui.label("Enter your current kw/h price");
+                let e_rates = ui.add(egui::DragValue::new(&mut self.e_rates));
             });
 
             ui.horizontal(|ui| {
-            ui.label("Enter the average daily activity level in hours");
-            let activity = ui.add(egui::Slider::new(&mut self.activity, 0..=24));
+                ui.label("Enter the average daily activity level in hours");
+                let activity = ui.add(egui::Slider::new(&mut self.activity, 0..=24));
             });
 
             ui.separator();
