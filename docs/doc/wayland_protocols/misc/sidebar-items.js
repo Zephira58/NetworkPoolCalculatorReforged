@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["gtk_primary_selection","Gtk primary selection protocol"],["server_decoration","KDE server decoration protocol"],["zwp_input_method_v2","Input method v2 unstable"]]};

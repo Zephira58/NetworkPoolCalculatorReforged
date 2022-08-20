@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["pthread_self","Obtain ID of the calling thread (see `pthread_self(3)`"]],"type":[["Pthread",""]]};

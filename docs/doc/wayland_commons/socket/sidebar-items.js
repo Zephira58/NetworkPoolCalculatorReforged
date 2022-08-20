@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MAX_BYTES_OUT","Maximum number of bytes that can be sent in a single socket message"],["MAX_FDS_OUT","Maximum number of FD that can be sent in a single socket message"]],"struct":[["BufferedSocket","An adapter around a raw Socket that directly handles buffering and conversion from/to wayland messages"],["Socket","A wayland socket"]]};

@@ -1,0 +1,13 @@
+/home/runner/work/NetworkPoolCalculatorReforged/NetworkPoolCalculatorReforged/docs/debug/deps/tracing-9fd8332ca0adf3a4.rmeta: /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/lib.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/macros.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/dispatcher.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/field.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/instrument.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/level_filters.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/span.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/stdlib.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/subscriber.rs
+
+/home/runner/work/NetworkPoolCalculatorReforged/NetworkPoolCalculatorReforged/docs/debug/deps/tracing-9fd8332ca0adf3a4.d: /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/lib.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/macros.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/dispatcher.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/field.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/instrument.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/level_filters.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/span.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/stdlib.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/subscriber.rs
+
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/lib.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/macros.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/dispatcher.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/field.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/instrument.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/level_filters.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/span.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/stdlib.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/subscriber.rs:

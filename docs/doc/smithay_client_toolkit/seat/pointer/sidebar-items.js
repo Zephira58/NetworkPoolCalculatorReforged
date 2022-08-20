@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["ThemeSpec","The specification of a cursor theme to be used by the ThemeManager"]],"struct":[["ThemeManager","Wrapper managing a system theme for pointer images"],["ThemedPointer","Wrapper of a themed pointer"]]};

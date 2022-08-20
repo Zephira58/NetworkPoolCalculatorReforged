@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Clipboard","Handles interfacing with the OS clipboard."]]};
