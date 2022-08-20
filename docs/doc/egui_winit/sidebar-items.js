@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":[["native_pixels_per_point",""],["screen_size_in_pixels",""]],"mod":[["clipboard",""],["screen_reader",""]],"struct":[["State","Handles the integration between egui and winit."],["WindowSettings","Can be used to store native window settings (position and size)."]]};

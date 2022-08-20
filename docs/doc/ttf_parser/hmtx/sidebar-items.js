@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["Metrics","Horizontal/Vertical Metrics."],["Table","A Horizontal/Vertical Metrics Table."]]};

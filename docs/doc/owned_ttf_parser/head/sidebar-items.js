@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["IndexToLocationFormat","An index format used by the Index to Location Table."]],"struct":[["Table","A Font Header Table."]]};
