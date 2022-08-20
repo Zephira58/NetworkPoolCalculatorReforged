@@ -2,6 +2,7 @@
 //TODO: Add recipt file generation
 //TODO: Add hidden tax rendering
 //TODO: Bug testing
+//TODO: Change default values back to 0 for release
 
 #![allow(unused_variables)]
 
@@ -30,22 +31,24 @@ struct MyApp {
     activity: f32,
     mod_reason: String,
     mod_value: u32,
+    mod_payout: f32,
 }
 
 impl Default for MyApp {
     fn default() -> Self {
         Self {
-            name: "".to_string(),
+            name: "Xanthus".to_string(),
             modifer_check: false,
-            w1: 0.0,
-            w2: 0.0,
-            w3: 0.0,
-            w4: 0.0,
-            watts: 0.0,
-            e_rates: 0.0,
-            activity: 0.0,
-            mod_reason: "".to_string(),
-            mod_value: 0,
+            w1: 1.0,
+            w2: 1.0,
+            w3: 1.0,
+            w4: 1.0,
+            watts: 320.0,
+            e_rates: 0.2,
+            activity: 24.0,
+            mod_reason: "Dev test".to_string(),
+            mod_value: 5,
+            mod_payout: 0.0,
         }
     }
 }
@@ -93,16 +96,6 @@ impl eframe::App for MyApp {
                 println!("Modcheck: {}", self.modifer_check);
             }
 
-            if self.modifer_check {
-                ui.label("Enter the modifier reason");
-                let mod_reason = ui.text_edit_singleline(&mut self.mod_reason);
-                ui.label("Enter the modifier value");
-                let mod_value = ui.add(egui::DragValue::new(&mut self.mod_value));
-                if ui.button("Subtract").clicked() {
-                    ui.label("You clicked me");
-                };
-            }
-
             let month_activity = self.activity * 30.0;
             let month_wats: f32 = self.watts * month_activity;
             let kw = month_wats / 1000.0;
@@ -112,8 +105,26 @@ impl eframe::App for MyApp {
             let weekly = mean * 7.0;
             let month = weekly * 4.0;
             let tax = month * 0.2;
-            let payout = month - tax;
+            let mut payout = month - tax;
             let profit = payout - cost;
+            self.mod_payout = payout;
+            
+            let mod_payout = self.mod_payout;
+            if self.modifer_check {
+                ui.label("Enter the modifier reason");
+                let mod_reason = ui.text_edit_singleline(&mut self.mod_reason);
+                ui.label("Enter the modifier value");
+                let mod_value = ui.add(egui::DragValue::new(&mut self.mod_value));
+
+                if ui.button("Subtract").clicked() {
+                    let mod_payout = payout - self.mod_value as f32;
+                    println!("Modifier payout:  -{}", self.mod_payout);
+                };
+                if ui.button("Add").clicked() {
+                    let mod_payout = payout + self.mod_value as f32;
+                    println!("Modifier payout: +{}", self.mod_payout);
+                };
+            }
 
             egui::ScrollArea::vertical().show(ui, |ui| { //Adds a scrollbar to anything nested in here
             ui.separator();
@@ -142,6 +153,8 @@ impl eframe::App for MyApp {
 
             if self.modifer_check {
                 ui.label(format!("Modifier reason: {:?}", self.mod_reason));
+                ui.label(format!("Modifier value: {:?}", self.mod_value));
+                ui.label(format!("Modified payout: {:?}", mod_payout));
             }
         }); // End of scrollbar
         });
