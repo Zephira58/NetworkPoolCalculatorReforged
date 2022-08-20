@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["epaint"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.63.0/core/iter/traits/accum/trait.Sum.html\" title=\"trait core::iter::traits::accum::Sum\">Sum</a>&lt;<a class=\"struct\" href=\"epaint/stats/struct.AllocInfo.html\" title=\"struct epaint::stats::AllocInfo\">AllocInfo</a>&gt; for <a class=\"struct\" href=\"epaint/stats/struct.AllocInfo.html\" title=\"struct epaint::stats::AllocInfo\">AllocInfo</a>","synthetic":false,"types":["epaint::stats::AllocInfo"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

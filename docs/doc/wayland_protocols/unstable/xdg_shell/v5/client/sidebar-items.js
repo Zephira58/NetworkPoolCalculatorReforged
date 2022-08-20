@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["xdg_popup","short-lived, popup surfaces for menus"],["xdg_shell","create desktop-style surfaces"],["xdg_surface","A desktop window"]]};

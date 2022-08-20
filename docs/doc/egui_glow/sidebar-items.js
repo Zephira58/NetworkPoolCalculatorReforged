@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":[["check_for_gl_error","Check for OpenGL error and report it using `tracing::error`."],["check_for_gl_error_even_in_release","Check for OpenGL error and report it using `tracing::error`."]],"mod":[["painter",""]]};

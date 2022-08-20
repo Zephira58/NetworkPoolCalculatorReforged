@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["is_available","Checks if the wayland-egl lib is available and can be used"]],"struct":[["WlEglSurface","EGL surface"]]};

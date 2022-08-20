@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["NetworkPoolCalculatorReforged"] = [{"text":"impl <a class=\"trait\" href=\"eframe/epi/trait.App.html\" title=\"trait eframe::epi::App\">App</a> for <a class=\"struct\" href=\"NetworkPoolCalculatorReforged/struct.MyApp.html\" title=\"struct NetworkPoolCalculatorReforged::MyApp\">MyApp</a>","synthetic":false,"types":["NetworkPoolCalculatorReforged::MyApp"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

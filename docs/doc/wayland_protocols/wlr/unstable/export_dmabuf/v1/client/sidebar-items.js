@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["zwlr_export_dmabuf_frame_v1","a DMA-BUF frame"],["zwlr_export_dmabuf_manager_v1","manager to inform clients and begin capturing"]]};

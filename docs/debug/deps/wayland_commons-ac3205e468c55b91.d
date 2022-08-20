@@ -1,0 +1,11 @@
+/home/runner/work/NetworkPoolCalculatorReforged/NetworkPoolCalculatorReforged/docs/debug/deps/wayland_commons-ac3205e468c55b91.rmeta: /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/lib.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/debug.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/filter.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/map.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/socket.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/user_data.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/wire.rs
+
+/home/runner/work/NetworkPoolCalculatorReforged/NetworkPoolCalculatorReforged/docs/debug/deps/wayland_commons-ac3205e468c55b91.d: /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/lib.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/debug.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/filter.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/map.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/socket.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/user_data.rs /home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/wire.rs
+
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/lib.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/debug.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/filter.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/map.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/socket.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/user_data.rs:
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/wayland-commons-0.29.4/src/wire.rs:
