@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FeatureName","A feature names."],["FeatureNames","A list fo feature names."],["FeatureNamesIter","An iterator over [`FeatureNames`]."],["SettingName","A setting name."],["Table","A Feature Name Table."]]};

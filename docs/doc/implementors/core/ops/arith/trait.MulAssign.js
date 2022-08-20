@@ -1,3 +1,0 @@
-(function() {var implementors = {};
-implementors["emath"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.63.0/core/ops/arith/trait.MulAssign.html\" title=\"trait core::ops::arith::MulAssign\">MulAssign</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.63.0/std/primitive.f32.html\">f32</a>&gt; for <a class=\"struct\" href=\"emath/struct.Vec2.html\" title=\"struct emath::Vec2\">Vec2</a>","synthetic":false,"types":["emath::vec2::Vec2"]}];
-if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

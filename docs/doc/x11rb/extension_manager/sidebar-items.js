@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["ExtensionManager","Helper for implementing `RequestConnection::extension_information()`."]]};

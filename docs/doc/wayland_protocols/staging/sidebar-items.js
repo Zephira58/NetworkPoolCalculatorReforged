@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["xdg_activation","The way for a client to pass focus to another toplevel is as follows."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["Async","Adapter for async IO manipulations"],["Readable","A future that resolves once the associated object becomes ready for reading"],["Writable","A future that resolves once the associated object becomes ready for writing"]]};
