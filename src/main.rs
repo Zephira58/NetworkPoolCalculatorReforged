@@ -126,30 +126,31 @@ impl eframe::App for MyApp {
                 };
             }
 
-            egui::ScrollArea::vertical().show(ui, |ui| { //Adds a scrollbar to anything nested in here
-            ui.separator();
-            ui.label(format!("\nAccount Holder: {:?}", self.name));
-            ui.label(format!("Wattage: {:?}", self.watts));
-            ui.label(format!("Eletricity rates: {:?}", self.e_rates));
-            ui.label(format!("Activity: {:?}", self.activity));
-            ui.label(format!("\nMonthly: {:?}", month));
-            ui.label(format!("First week: {:?}", self.w1));
-            ui.label(format!("Second week: {:?}", self.w2));
-            ui.label(format!("Third week: {:?}", self.w3));
-            ui.label(format!("Fourth week: {:?}", self.w4));
-            ui.label(format!("Mean: {:?}\n", mean));
-            ui.label(format!("Monthly activity: {:?}", month_activity));
-            ui.label(format!("Monthly wattage: {:?}", month_wats));
-            ui.label(format!("Monthly kw: {:?}", kw));
-            ui.label(format!("Monthly cost: {:?}", cost));
-            ui.label(format!("Define monthly payouts: {:?}", define_monthly));
-            ui.label(format!("Mean monthly payouts: {:?}", mean));
-            ui.label(format!("Weekly payouts: {:?}", weekly));
-            ui.label(format!("Monthly payouts: {:?}", month));
-            ui.label(format!("Tax: {:?}", tax));
-            ui.label(format!("Payout: {:?}", payout));
-            ui.label(format!("Profit: {:?}", profit));
-            ui.separator();
+            egui::ScrollArea::vertical().show(ui, |ui| {
+                //Adds a scrollbar to anything nested in here
+                ui.separator();
+                ui.label(format!("\nAccount Holder: {:?}", self.name));
+                ui.label(format!("Wattage: {:?}", self.watts));
+                ui.label(format!("Eletricity rates: {:?}", self.e_rates));
+                ui.label(format!("Activity: {:?}", self.activity));
+                ui.label(format!("\nMonthly: {:?}", month));
+                ui.label(format!("First week: {:?}", self.w1));
+                ui.label(format!("Second week: {:?}", self.w2));
+                ui.label(format!("Third week: {:?}", self.w3));
+                ui.label(format!("Fourth week: {:?}", self.w4));
+                ui.label(format!("Mean: {:?}\n", mean));
+                ui.label(format!("Monthly activity: {:?}", month_activity));
+                ui.label(format!("Monthly wattage: {:?}", month_wats));
+                ui.label(format!("Monthly kw: {:?}", kw));
+                ui.label(format!("Monthly cost: {:?}", cost));
+                ui.label(format!("Define monthly payouts: {:?}", define_monthly));
+                ui.label(format!("Mean monthly payouts: {:?}", mean));
+                ui.label(format!("Weekly payouts: {:?}", weekly));
+                ui.label(format!("Monthly payouts: {:?}", month));
+                ui.label(format!("Tax: {:?}", tax));
+                ui.label(format!("Payout: {:?}", payout));
+                ui.label(format!("Profit: {:?}", profit));
+                ui.separator();
 
             if self.modifer_check {
                 ui.label(format!("Modifier reason: {:?}", self.mod_reason));
@@ -157,7 +158,6 @@ impl eframe::App for MyApp {
                 ui.label(format!("Modified payout: {:?}", mod_payout));
             }
         }); // End of scrollbar
-        });
     }
 }
 
