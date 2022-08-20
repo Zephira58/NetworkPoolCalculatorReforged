@@ -47,6 +47,7 @@ struct MyApp {
     watts: f32,
     e_rates: f32,
     activity: f32,
+    mod_reason: String,
 }
 
 impl Default for MyApp {
@@ -61,6 +62,7 @@ impl Default for MyApp {
             watts: 0.0,
             e_rates: 0.0,
             activity: 0.0,
+            mod_reason: "".to_string(),
         }
     }
 }
@@ -74,17 +76,6 @@ impl eframe::App for MyApp {
                 ui.label("Enter the account holder username:");
                 let id = ui.text_edit_singleline(&mut self.name);
             });
-
-            let checkbox = ui.checkbox(&mut self.modifer_check, "Are there any modifiers?");
-
-            if checkbox.clicked() {
-                self.modifer_check = true;
-                println!("Modcheck: {}", self.modifer_check);
-            };
-            if checkbox.secondary_clicked() {
-                self.modifer_check = false;
-                println!("Modcheck: {}", self.modifer_check);
-            }
 
             ui.label("\nEnter the average weekly payouts");
             let w1 = ui.add(egui::DragValue::new(&mut self.w1));
@@ -107,6 +98,22 @@ impl eframe::App for MyApp {
                 let activity = ui.add(egui::Slider::new(&mut self.activity, 0.0..=24.0));
             });
 
+            let checkbox = ui.checkbox(&mut self.modifer_check, "Are there any modifiers?");
+
+            if checkbox.clicked() {
+                self.modifer_check = true;
+                println!("Modcheck: {}", self.modifer_check);
+            };
+            if checkbox.secondary_clicked() {
+                self.modifer_check = false;
+                println!("Modcheck: {}", self.modifer_check);
+            }
+
+            if self.modifer_check == true {
+                ui.label("Enter the modifier reason");
+                let mod_reason = ui.text_edit_singleline(&mut self.mod_reason);
+            }
+
             let month_activity = self.activity * 30.0;
             let month_wats: f32 = self.watts * month_activity;
             let kw = month_wats / 1000.0;
@@ -123,7 +130,13 @@ impl eframe::App for MyApp {
             ui.label(format!("\nAccount Holder: {:?}", self.name));
             ui.label(format!("Wattage: {:?}", self.watts));
             ui.label(format!("Eletricity rates: {:?}", self.e_rates));
-            ui.label(format!("Activity: {:?}\n", self.activity));
+            ui.label(format!("Activity: {:?}", self.activity));
+            ui.label(format!("\nMonthly: {:?}", month));
+            ui.label(format!("First week: {:?}", self.w1));
+            ui.label(format!("Second week: {:?}", self.w2));
+            ui.label(format!("Third week: {:?}", self.w3));
+            ui.label(format!("Fourth week: {:?}", self.w4));
+            ui.label(format!("Mean: {:?}\n", mean));
             ui.label(format!("Monthly activity: {:?}", month_activity));
             ui.label(format!("Monthly wattage: {:?}", month_wats));
             ui.label(format!("Monthly kw: {:?}", kw));
@@ -135,6 +148,10 @@ impl eframe::App for MyApp {
             ui.label(format!("Tax: {:?}", tax));
             ui.label(format!("Payout: {:?}", payout));
             ui.label(format!("Profit: {:?}", profit));
+            ui.separator();
+            if self.modifer_check == true {
+                ui.label(format!("Modifier reason: {:?}", self.mod_reason));
+            }
         });
     }
 }
