@@ -1,32 +1,13 @@
-#![allow(unused_assignments)]
+//TODO: Add modfier calculation and rendering
+//TODO: Add recipt file generation
+//TODO: Add hidden tax rendering
+//TODO: Bug testing
+
 #![allow(unused_variables)]
-#![allow(non_snake_case)]
 
 use eframe::egui;
-use eframe::egui::{Style, Visuals};
-
+use eframe::egui::Visuals;
 //use std::{fs, io::Write};
-
-//fn credits() {
-//    print!("{esc}c", esc = 27 as char);
-//    println!("Made by Xanthus");
-//    println!("Check out my other works at https://github.com/Xanthus58");
-//    println!("Email me at 'Xanthus58@protonmail.com'");
-//}
-
-fn cls() {
-    print!("{esc}c", esc = 27 as char);
-}
-
-//function that gets user input
-//fn get_input() -> String {
-//    println!("press enter to continue");
-//    let mut input = String::new();
-//    std::io::stdin()
-//        .read_line(&mut input)
-//        .expect("Failed to read line");
-//    input.trim().to_string()
-//}
 
 fn main() {
     let options = eframe::NativeOptions::default();
@@ -48,6 +29,7 @@ struct MyApp {
     e_rates: f32,
     activity: f32,
     mod_reason: String,
+    mod_value: u32,
 }
 
 impl Default for MyApp {
@@ -63,6 +45,7 @@ impl Default for MyApp {
             e_rates: 0.0,
             activity: 0.0,
             mod_reason: "".to_string(),
+            mod_value: 0,
         }
     }
 }
@@ -70,7 +53,8 @@ impl Default for MyApp {
 impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.style_mut().visuals = Visuals::dark();
+            ui.style_mut().visuals = Visuals::dark(); // Makes the buttons dark
+            ctx.set_visuals(egui::Visuals::dark()); // Make the ui dark
 
             ui.horizontal(|ui| {
                 ui.label("Enter the account holder username:");
@@ -109,9 +93,14 @@ impl eframe::App for MyApp {
                 println!("Modcheck: {}", self.modifer_check);
             }
 
-            if self.modifer_check == true {
+            if self.modifer_check {
                 ui.label("Enter the modifier reason");
                 let mod_reason = ui.text_edit_singleline(&mut self.mod_reason);
+                ui.label("Enter the modifier value");
+                let mod_value = ui.add(egui::DragValue::new(&mut self.mod_value));
+                if ui.button("Subtract").clicked() {
+                    ui.label("You clicked me");
+                };
             }
 
             let month_activity = self.activity * 30.0;
@@ -126,6 +115,7 @@ impl eframe::App for MyApp {
             let payout = month - tax;
             let profit = payout - cost;
 
+            egui::ScrollArea::vertical().show(ui, |ui| { //Adds a scrollbar to anything nested in here
             ui.separator();
             ui.label(format!("\nAccount Holder: {:?}", self.name));
             ui.label(format!("Wattage: {:?}", self.watts));
@@ -149,9 +139,11 @@ impl eframe::App for MyApp {
             ui.label(format!("Payout: {:?}", payout));
             ui.label(format!("Profit: {:?}", profit));
             ui.separator();
-            if self.modifer_check == true {
+
+            if self.modifer_check {
                 ui.label(format!("Modifier reason: {:?}", self.mod_reason));
             }
+        }); // End of scrollbar
         });
     }
 }
